@@ -1,18 +1,32 @@
 package com.jc.springjpademo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
+//@Table(name = "Coursedetails") -> this will create table coursedetails
+//@Table(name = "CourseDetails") // -> this will craete table course_details ..default spring jpa naming strategy
+
+@NamedQuery(name = "query_find_all_courses",query = "select c from Course c")
+@NamedQuery(name = "query_find_courses_with_spring", query="select c from Course c where name like '%Spring%'")
 public class Course {
 
     @Id
     @GeneratedValue
     private long id;
-
+    //@Column(name = "fullname",nullable = false)
+    @Column(nullable = false)
     private String name;
+
+    @CreationTimestamp
+    private LocalDateTime created_date;
+
+    @UpdateTimestamp
+    private LocalDateTime last_updated_date;
 
     public Course() {
     }

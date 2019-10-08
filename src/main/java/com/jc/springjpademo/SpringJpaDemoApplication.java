@@ -29,5 +29,7 @@ public class SpringJpaDemoApplication implements CommandLineRunner {
 		System.out.println(course.getId());
 		course.setName("Microservices");
 		repository.save(course);
+
+		repository.misc();
 	}
 }
