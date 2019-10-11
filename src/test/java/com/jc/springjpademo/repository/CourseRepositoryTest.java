@@ -8,6 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.EntityManager;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -16,6 +18,7 @@ public class CourseRepositoryTest {
 
 	@Autowired
 	CourseRepository repository;
+
 
 	@Test
 	public void findByIdTest(){
@@ -49,4 +52,5 @@ public class CourseRepositoryTest {
 		repository.save(course);//this will update name -> Spring Advanced
 		assertEquals("Spring Advanced",repository.findById(course.getId()).getName());
 	}
+
 }

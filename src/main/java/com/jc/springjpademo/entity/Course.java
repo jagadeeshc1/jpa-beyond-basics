@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Entity
 //@Table(name = "Coursedetails") -> this will create table coursedetails
-//@Table(name = "CourseDetails") // -> this will craete table course_details ..default spring jpa naming strategy
+//@Table(name = "CourseDetails") // -> this will create table course_details ..default spring jpa naming strategy
 
 @NamedQuery(name = "query_find_all_courses",query = "select c from Course c")
 @NamedQuery(name = "query_find_courses_with_spring", query="select c from Course c where name like '%Spring%'")
