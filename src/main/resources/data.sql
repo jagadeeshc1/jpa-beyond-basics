@@ -23,9 +23,9 @@ values (203,'Naresh',303);
 
 
 
-insert into Review(id,rating,description)
-values (401,'1','Bad');
-insert into Review(id,rating,description)
-values (402,'3','Okayish');
-insert into Review(id,rating,description)
-values (403,'5','Excellent');
+insert into Review(id,rating,description,course_id)
+values (401,'1','Bad',101);
+insert into Review(id,rating,description,course_id)
+values (402,'3','Okayish',102);
+insert into Review(id,rating,description,course_id)
+values (403,'5','Excellent',104);

@@ -5,6 +5,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -21,6 +22,9 @@ public class Course {
     //@Column(name = "fullname",nullable = false)
     @Column(nullable = false)
     private String name;
+
+    @OneToOne(fetch = FetchType.LAZY,mappedBy = "course")
+    private Review review;
 
     @CreationTimestamp
     private LocalDateTime created_date;
@@ -68,6 +72,14 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Review getReview() {
+        return review;
+    }
+
+    public void setReview(Review review) {
+        this.review = review;
     }
 
     @Override

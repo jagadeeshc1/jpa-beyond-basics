@@ -1,9 +1,6 @@
 package com.jc.springjpademo.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Review {
@@ -13,7 +10,7 @@ public class Review {
     String rating;
     String description;
 
-    @ManyToOne
+    @OneToOne(fetch = FetchType.LAZY)
     Course course;
 
     public long getId() {
@@ -38,5 +35,13 @@ public class Review {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }

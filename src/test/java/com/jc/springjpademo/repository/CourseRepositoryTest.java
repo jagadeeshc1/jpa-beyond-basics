@@ -1,8 +1,11 @@
 package com.jc.springjpademo.repository;
 
 import com.jc.springjpademo.entity.Course;
+import com.jc.springjpademo.entity.Review;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
@@ -16,8 +19,13 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class CourseRepositoryTest {
 
+	Logger logger= LoggerFactory.getLogger(this.getClass());
+
 	@Autowired
 	CourseRepository repository;
+
+	@Autowired
+	EntityManager entityManager;
 
 
 	@Test
@@ -51,6 +59,21 @@ public class CourseRepositoryTest {
 		course.setName("Spring Advanced");
 		repository.save(course);//this will update name -> Spring Advanced
 		assertEquals("Spring Advanced",repository.findById(course.getId()).getName());
+	}
+
+	@Test
+	public void getReviewsTest(){
+		Course course = entityManager.find(Course.class,101l);
+		logger.info("course - {}",course);
+		//logger.info("reviews - {}",course.getReview());
+
+	}
+
+	@Test
+	public void getCourseFromReview(){
+		Review review = entityManager.find(Review.class,402l);
+		logger.info("review - {}",review);
+		logger.info("course - {}",review.getCourse());
 	}
 
 }

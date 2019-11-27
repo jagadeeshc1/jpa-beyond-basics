@@ -27,7 +27,7 @@ public class StudenRepositoryTest {
     @Test
     //@Transactional
     public void findPassportWithStudent(){
-       Student student = studentRepository.findById(201);
+       Student student = entityManager.find(Student.class,201l);
        logger.info("student - {}",student);
        logger.info("passport - {}",student.getPassport());//will get exception at this point if fetchTyp=LAZY
        //to get this either make fetchType=EAGER or put @Transactional above this method
@@ -40,6 +40,6 @@ public class StudenRepositoryTest {
 
         Passport passport = entityManager.find(Passport.class,301l);
         logger.info("passport - {}",passport);
-        logger.info("Student - {}",passport.getStudent());
+        //logger.info("Student - {}",passport.getStudent());
     }
 }

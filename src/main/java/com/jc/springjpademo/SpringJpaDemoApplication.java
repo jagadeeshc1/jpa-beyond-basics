@@ -43,10 +43,10 @@ public class SpringJpaDemoApplication implements CommandLineRunner {
 		repository.misc();*/
 
 		//logger.info("student - {}",studentRepository.findById(201));
-		Passport passport = entityManager.find(Passport.class,301l);
+		/*Passport passport = entityManager.find(Passport.class,301l);
 		logger.info("passport - {}",passport);
 		logger.info("Student - {}",passport.getStudent());
-
+*/
 
 	}
 }
